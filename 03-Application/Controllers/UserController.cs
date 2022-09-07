@@ -1,24 +1,23 @@
 using Application.Dtos;
-using AutoMapper;
+using Application.Utility.Mapping;
 using DataModels;
 using LogicalModels.UserAggregate.Data;
-using LogicalModels.UserAggregate.Entities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Application.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class WeatherForecastController : ControllerBase
+    public class UserController : ControllerBase
     {
-        private readonly ILogger<WeatherForecastController> _logger;
+        private readonly ILogger<UserController> _logger;
         private readonly IUserRepository _userRepository;
         private readonly IUnitOfWork _unitOfWork;
-        private readonly IMapper _mapper;
+        private readonly IAppMapper _mapper;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger,
+        public UserController(ILogger<UserController> logger,
             IUserRepository userRepository, IUnitOfWork unitOfWork,
-            IMapper mapper)
+            IAppMapper mapper)
         {
             _logger = logger;
             _userRepository = userRepository;

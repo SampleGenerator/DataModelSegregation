@@ -4,7 +4,7 @@ namespace LogicalModels.UserAggregate.Entities;
 
 public sealed class User
 {
-    private User()
+    public User()
     {}
 
     public int Id { get; private set; }

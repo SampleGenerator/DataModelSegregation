@@ -1,5 +1,6 @@
-﻿using ApplicationServices.Utility;
-using DataModels.UserAggregate;
+﻿using DataModels.UserAggregate;
+using DataModels.Utility;
+using DataModels.Utility.Mapping;
 using LogicalModels.UserAggregate.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -10,7 +11,7 @@ public static class DataBootstrapper
 {
     public static IServiceCollection AddDataLayer(this IServiceCollection services, string connectionString)
     {
-        services.AddAutoMapper(typeof(MappingProfile));
+        services.AddDataLayerMapper();
 
         services.AddDbContext<AppDbContext>(
             opt => opt.UseInMemoryDatabase("EShop")

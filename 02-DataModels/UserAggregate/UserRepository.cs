@@ -1,6 +1,7 @@
-﻿using AutoMapper;
+﻿using DataModels.Utility.Mapping;
 using LogicalModels.UserAggregate.Data;
 using LogicalModels.UserAggregate.Entities;
+using MapsterMapper;
 using Microsoft.EntityFrameworkCore;
 
 namespace DataModels.UserAggregate;
@@ -8,9 +9,9 @@ namespace DataModels.UserAggregate;
 internal sealed class UserRepository : IUserRepository
 {
     private readonly AppDbContext _dbContext;
-    private readonly IMapper _mapper;
+    private readonly IDataMapper _mapper;
 
-    public UserRepository(AppDbContext dbContext, IMapper mapper)
+    public UserRepository(AppDbContext dbContext, IDataMapper mapper)
     {
         _dbContext = dbContext;
         _mapper = mapper;
